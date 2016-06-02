@@ -374,7 +374,7 @@ relayhost = <%= @relayhost %>
 #
 # Specify 0 to disable the feature. Valid delays are 0..10.
 #
-#in_flow_delay = 1s
+in_flow_delay = <%= @in_flow_delay %>
 
 # ADDRESS REWRITING
 #
@@ -751,3 +751,10 @@ append_dot_mydomain = <%= scope.function_bool2yesno([@append_dot_mydomain]) %>
 virtual_alias_maps = hash:/etc/postfix/virtual
 virtual_alias_domains = hash:/etc/postfix/virtual
 <%- end -%>
+
+# postfix tunning
+# www.postfix.org/TUNING_README.html
+
+default_process_limit = <%= @default_process_limit %>
+smtpd_client_connection_count_limit = <%= @smtpd_client_connection_count_limit %>
+smtpd_client_connection_rate_limit = <%= @smtpd_client_connection_rate_limit %>
